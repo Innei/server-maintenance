@@ -1,0 +1,14 @@
+[Unit]
+Description=Conservative server cache maintenance
+Wants=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/server-maintenance
+TimeoutStartSec=30min
+Nice=10
+IOSchedulingClass=idle
+PrivateTmp=true
+ProtectHome=true
+NoNewPrivileges=true
